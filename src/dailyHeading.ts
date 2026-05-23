@@ -27,8 +27,14 @@ export function formatDailyHeading(d: Date = new Date()): string {
   return `##### — ${formatDailyHeadingDate(d)}`;
 }
 
+/** Blank line, heading, blank line — cursor goes on the first blank line. */
+export function buildDailyHeadingBlock(d: Date = new Date()): string {
+  return `\n${formatDailyHeading(d)}\n\n`;
+}
+
 export function insertDailyHeading(editor: Editor, d: Date = new Date()): void {
-  const line = formatDailyHeading(d);
   const cursor = editor.getCursor();
-  editor.replaceRange(`${line}\n`, cursor);
+  const writeLine = cursor.line;
+  editor.replaceRange(buildDailyHeadingBlock(d), cursor);
+  editor.setCursor({ line: writeLine, ch: 0 });
 }

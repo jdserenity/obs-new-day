@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  buildDailyHeadingBlock,
   formatDailyHeading,
   formatDailyHeadingDate,
   ordinalSuffix,
@@ -37,5 +38,13 @@ describe("formatDailyHeadingDate", () => {
 describe("formatDailyHeading", () => {
   it("prefixes with h5 and em dash", () => {
     expect(formatDailyHeading(d(2026, 5, 23))).toBe("##### — May 23rd, 2026");
+  });
+});
+
+describe("buildDailyHeadingBlock", () => {
+  it("wraps heading with blank lines above and below", () => {
+    expect(buildDailyHeadingBlock(d(2026, 5, 23))).toBe(
+      "\n##### — May 23rd, 2026\n\n",
+    );
   });
 });
