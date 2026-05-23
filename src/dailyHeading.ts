@@ -29,7 +29,7 @@ export function formatDailyHeading(d: Date = new Date()): string {
 
 /** Blank line, heading, blank line — cursor goes on the first blank line. */
 export function buildDailyHeadingBlock(d: Date = new Date()): string {
-  return `\n${formatDailyHeading(d)}\n\n`;
+  return `\n${formatDailyHeading(d)}\n\n\n`;
 }
 
 export function insertDailyHeading(editor: Editor, d: Date = new Date()): void {

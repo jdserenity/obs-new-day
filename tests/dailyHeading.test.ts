@@ -44,7 +44,7 @@ describe("formatDailyHeading", () => {
 describe("buildDailyHeadingBlock", () => {
   it("wraps heading with blank lines above and below", () => {
     expect(buildDailyHeadingBlock(d(2026, 5, 23))).toBe(
-      "\n##### — May 23rd, 2026\n\n",
+      "\n##### — May 23rd, 2026\n\n\n",
     );
   });
 });
